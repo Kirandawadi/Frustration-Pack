@@ -42,6 +42,9 @@
 
 /* Private variables ---------------------------------------------------------*/
 
+char test_data2[20]= "I am from UART2\r\n";
+char test_data3[20]= "I am from UART3\r\n";
+
 /*******Refer to variables.h********/
 
 #define RAD_TO_DEG 57.295779513082320876798154814105
@@ -163,116 +166,15 @@ int main(void)
 	Calibrate_Base();					
   while (1)
   {
-	//	HAL_ADC_PollForConversion(&hadc1, 10);
-	//	adc_value = HAL_ADC_GetValue(&hadc1);
-		
-	/*	Left_Right.throttel = 30;
-		HAL_Delay(7000);
-		Left_Right.throttel = -30;
-		HAL_Delay(7000);*/
-//		First_Arm.throttel = 20;
-//		Second_Arm.throttel = 20;
-		//set_rotor_angle(20);
-		//MPU_GET_VALUE(&MPU1);
-//		checker = MPU1.Angle;
-//	PID_calculate(&MPU1,&MOTOR_1,setting);
-		//sprintf(tx_data,"Angle1: %f , Angle2: %f\r\n",MPU1.Angle , MPU2.Angle);
-		//HAL_UART_Transmit(&huart2,(uint8_t*)&tx_data,sizeof(tx_data),0xFFFF);
-	//	HAL_UART_Receive_IT(&huart2, (uint8_t *)&uart_rx ,1 );
-//		sprintf(tx_data,"Angle: %f , Setpoint: %d , error: %f , throttel: %d\r\n",MPU1.Angle , MOTOR_1.setpoint,MOTOR_1.pid_error , MOTOR_1.throttel);
-//		HAL_UART_Transmit(&huart2,(uint8_t*)&tx_data,sizeof(tx_data),0xFFFF);
-//		HAL_UART_Receive_IT(&huart2, (uint8_t *)&uart_rx ,1 );
-		//my_angle = left_right_angle();
-//		HAL_GPIO_WritePin(stepper_port,stepper1_dir,HIGH);
-		//displacement = distance_travelled(encoder_reading_wheel);
-	//set_angle(30,Right);
-		/*
-		if(HAL_GetTick() - x >= dt)
-		{
-			x = HAL_GetTick();
-			omega = (6.2831 * TIM4->CNT*50)/4320;
-			TIM4->CNT =0;
-			printf("%f\n",omega);
-		}
-		*/
-	//angle = left_right_angle();
-	//  set_angle(10, Right);
-	/*	if(rec == 0)
-		{
-			throttel_left = 0;
-			throttel_right = 0;
-			HAL_TIM_PWM_Stop(&htim2,TIM_CHANNEL_1);
-			HAL_GPIO_WritePin(sig_port,sig1,GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(sig_port,sig2, GPIO_PIN_RESET);
-		}
-		
-		 else if(rec == 1)
-		{
-				ds  = 40;
-				distance =  ds *fullcounter * 0.018181818182 ;
-				move(distance, 20 ,Front);
-				//HAL_Delay(500);
-				//set_angle(-15,Left);
-				//HAL_Delay(1000);
-				//TIM4->CNT = 0;
-				//encoder_reading_wheel = 0;
-				//encoder_reading_pre =0;
-				//move(3000, 20 ,Front);
-		}
-		
-			
-		else if(rec == 2)
-		{
-			HAL_GPIO_WritePin(sig_port,sig2,GPIO_PIN_SET);
-			HAL_GPIO_WritePin(sig_port,sig1,GPIO_PIN_RESET);
-			htim2.Instance->CCR1 = (int)((20 - forward_speed) * (2800 / 17));
-			HAL_TIM_PWM_Start(&htim2,TIM_CHANNEL_1);
-		}	
-		
-		//turning left
-		else if(rec == 3)
-		{
-			throttel_left =  30;
-			throttel_right = 30;
-			HAL_TIM_PWM_Stop(&htim2,TIM_CHANNEL_1);
-		}
-		else if(rec == 4)
-		{
-			throttel_left = -30;
-			throttel_right = -30;
-			HAL_TIM_PWM_Stop(&htim2,TIM_CHANNEL_1);
-		}
-		
-		
-		//Moving right with curvy step
-		else if(rec == 6)
-		{
-			throttel_left = 60 ;
-			throttel_right = 60; 
-			HAL_GPIO_WritePin(sig_port,sig1,GPIO_PIN_SET);
-			HAL_GPIO_WritePin(sig_port,sig2,GPIO_PIN_RESET);
-			htim2.Instance->CCR1 = (int)((20 - forward_speed) * (2800 / 17));
-			HAL_TIM_PWM_Start(&htim2,TIM_CHANNEL_1);
-		}
-		//Moving left with curvy step
-		else if(rec == 5)
-		{
-			throttel_left = -70 ;
-			throttel_right = -70 ;
-			HAL_GPIO_WritePin(sig_port,sig1,GPIO_PIN_SET);
-			HAL_GPIO_WritePin(sig_port,sig2,GPIO_PIN_RESET);
-			htim2.Instance->CCR1 = (int)((20 - forward_speed) * (2800 / 17));
-			HAL_TIM_PWM_Start(&htim2,TIM_CHANNEL_1);
-			
-			}
-	*/
-}
+		HAL_UART_Transmit(&huart2,(uint8_t*)&tx_data,sizeof(test_data2),0xFFFF);
+		HAL_UART_Transmit(&huart3,(uint8_t*)&tx_data,sizeof(test_data3),0xFFFF);
+	}
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
 
   /* USER CODE END 3 */
-
+	
 }
 
 /** System Clock Configuration

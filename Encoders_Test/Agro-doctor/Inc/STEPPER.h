@@ -54,7 +54,7 @@ void move(uint32_t distance, float velocity,int direction);
 void set_angle(float angle,uint8_t direction);
 int pid(int16_t set_distance,uint16_t wind_up,uint8_t mode);
 void set_rotor_angle(int ang);
-float initial_angle();
+float initial_angle(void);
 void Calibrate_Base(void);
 void Initialize_Steppers(void);
 

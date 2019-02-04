@@ -40,7 +40,16 @@
 	float angle , humid_percentage = 0;
 	int ds = 0 ,my_angle1 = 0 , my_angle2 = 0 ,my_angle = 0 ,temp_angle = 0 , set_arm_first = 55 , set_arm_second = 0 , adc_value = 0;
 	char str[30];
-	char tx_data[100];
+	char tx_data[400] = "STEPPERS TEST:\r\nPress these keys for corresponding steppers\r\n	\
+		1 for ROTOR(CLOCKWISE)\r\n	\
+		2 for ROTOR(ANTI-CLOCKWISE)\r\n	\
+		3 for LEFT_RIGHT(CLOCKWISE)\r\n	\
+		4 for LEFT_RIGHT(ANTI-CLOCKWISE\r\n	\
+		5 for FIRST_ARM(CLOCKWISE)\r\n	\
+		6 for FIRST_ARM(ANTI-CLOCKWISE)\r\n	\
+		7 for SECOND_ARM(CLOCKWISE)\r\n	\
+		8 for SECOND(ANTI-CLOCKWISE)\r\n";
+	
 	int checker = 0;
 	int setting =0;
 	extern float current_angle;
